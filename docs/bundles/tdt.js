@@ -10546,7 +10546,7 @@ this program. If not, see <https://www.apache.org/licenses/LICENSE-2.0>.
 var theme = "light";
 var sfmap = L.map('sfmap').setView([37.77, -122.42], 12);
 var url = 'https://api.mapbox.com/styles/v1/mapbox/' + theme + '-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
-var token = 'pk.eyJ1Ijoic2ZjdGEiLCJhIjoiY2pubHlud2lpMDNrcTNwdW1mY2xwcGJjaiJ9.QgTRLm5gg9uJsOOlpSbYCA';
+var token = 'pk.eyJ1Ijoic2ZjdGEiLCJhIjoiY2pzNTFtOHBoMGI0bDQzbnR1eW8xN2tjMyJ9.3fMfZXnOwtywFRRuK70CDQ';
 var attribution = '<a href="http://openstreetmap.org">OpenStreetMap</a> | ' + '<a href="http://mapbox.com">Mapbox</a>';
 var baseLayer = L.tileLayer(url, {
   attribution: attribution,
