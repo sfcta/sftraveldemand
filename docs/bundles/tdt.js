@@ -12068,9 +12068,7 @@ function getDistProps(sourceGeoType, sourceGeoTypeKey, targetDistrict, mode, dir
 
   if (selectedMode && landUseCheck() == true && selectedPurpose && selectedDirection && addressDistrictNum && selectedTimePeriod) {
     //this returns a number not an object
-    console.log(filterDistributionData(sourceGeoType, sourceGeoTypeKey, targetDistrict, mode, direction, landUse, timePeriod, purpose));
     data = filterDistributionData(sourceGeoType, sourceGeoTypeKey, mode, direction, landUse, timePeriod, purpose)[0][districtFieldName];
-    console.log(data);
     return data;
   }
 }
@@ -12141,6 +12139,9 @@ function addAddressTooltipToMap() {
 }
 
 function updateMap() {
+  if (landUseCheck() == false) {
+    return;
+  }
   landUseToAttr = { 'Residential': { 'rate_key': 1, 'scalar': app.num_studios + app.num_1bed + 2 * app.num_2bed + 3 * app.num_3bed,
       'unit': 'Bedrooms', 'proxyLandUse': 'Residential' },
     'Office': { 'rate_key': 0, 'scalar': app.off_sqft / 1000,
@@ -12638,7 +12639,6 @@ function getFilteredTripsByDistrict() {
       districtPersonTrips[district.dist] = personTrips; //this creates a dictionary of dictionaries, with one dictionary for every district where the keys are the land uses/total
       //and the dictionary is populated by the time period
       districtVehicleTrips[district.dist] = vehicleTrips;
-      console.log(district);
     }
   } catch (err) {
     _didIteratorError8 = true;
@@ -12922,7 +12922,21 @@ var app = new Vue({
     inputs: false,
     placetype: '',
     placetype_text: '',
-    res_tripgen_daily: ''
+    res_tripgen_daily: '',
+    ret_tripgen_daily: '',
+    rest_tripgen_daily: '',
+    comp_tripgen_daily: '',
+    off_tripgen_daily: '',
+    sup_tripgen_daily: '',
+    hot_tripgen_daily: '',
+
+    res_tripgen_PM: '',
+    ret_tripgen_PM: '',
+    rest_tripgen_PM: '',
+    comp_tripgen_PM: '',
+    off_tripgen_PM: '',
+    sup_tripgen_PM: '',
+    hot_tripgen_PM: ''
 
   },
   watch: {},
